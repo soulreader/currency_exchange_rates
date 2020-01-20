@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<h1>Курсы валют ЦБ РФ на {{ date }}</h1>
+<p><a href="{{ url_for('weekly_rates') }}">Недельные курсы</a></p>
+<table>
+  <tr>
+    <td>Код валюты</td>
+    <td>Валюта</td>
+    <td>Курс</td>
+    <td>Номинал</td>
+
+  </tr>
+{% for today_rate in today_rates %}
+  <tr>
+    <td>{{ today_rate.code }}</td>
+    <td>{{ today_rate.name }}</td>
+    <td>{{ today_rate.value }}</td>
+    <td>{{ today_rate.nominal }}</td>
+  </tr>
+{% endfor %}
+</table>
